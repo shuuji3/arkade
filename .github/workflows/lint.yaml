@@ -1,0 +1,12 @@
+name: staticcheck
+on: [push, pull_request]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: staticcheck
+        uses: grandcolline/golang-github-actions@v1.1.0
+        with:
+          run: staticcheck
+          token: ${{ secrets.GITHUB_TOKEN }}
